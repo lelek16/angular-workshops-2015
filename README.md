@@ -1,3 +1,3 @@
-### Angular Workhsop
+### Angular Workshop
 #### by Espeo Software
 
