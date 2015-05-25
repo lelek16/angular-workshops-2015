@@ -11,31 +11,38 @@
 
 ### ng-app
 * Step 1
+* ku
 
 ### ng-controller
 * Step 2
 * List of Avengers
+* kh
 
 ### ng-model
 * With Step 2
 * Add row with adding new Avengers to List
+* kh
 
 ### ng-filter
 * Step 3
 * filter usage with List (searching)
 * hasSuperPowerFilter which display heroes specific powers
+* kh
 
 ### ng-routing
 * Step 4
 * Add routing for each Avengers page
+* ku
 
 ### service
 * Step 5
 * Fetch selected Avengers data
+* kh
 
 ### Directive
-* Step 5
+* Step 6
 * Checkbox with Assembly Me!
 * Assembled Avengers directive avengers-assembled 
+* ku
 
 ##### by Espeo Software
