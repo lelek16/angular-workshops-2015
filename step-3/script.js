@@ -16,6 +16,9 @@
         };
         vm.addAvenger = addAvenger;
 
+        /* Search query is an object */
+        vm.search = {};
+
         function addAvenger(newAvenger) {
             vm.avengers.push(newAvenger);
 

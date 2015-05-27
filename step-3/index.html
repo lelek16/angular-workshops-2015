@@ -15,13 +15,17 @@
   </div>
   <div>
     <ul>
+
+      <label>
+        <!-- Note that we follow the structure, we can also use list.search.$ to match any field -->
+        <input type="checkbox" ng-model="list.search.hasOwnSuperPowers"/> With superpowers?
+      </label>
       <!-- ng-repeat *directive* binds -->
-      <li ng-repeat="avenger in list.avengers">
+      <li ng-repeat="avenger in list.avengers|filter:list.search:strict">
         <!-- Both fields in  -->
         {{avenger.name}} ({{avenger.realName}})
       </li>
     </ul>
-
     <!-- Note: <form> is a directive too! -->
     <form>
       <div class="form-group">
