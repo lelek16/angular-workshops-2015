@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-16">
+    <table class="table">
+      <thead>
+      <th>Hero Name</th>
+      <th>Alter Ego</th>
+      <th>Superpowers</th>
+      <th>First apperance</th>
+      <th>Created By</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="avenger in avengers">
+          <td>{{avenger.fullName}}</td>
+          <td>{{avenger.alterEgo}}</td>
+          <td>{{avenger.superPowers}}</td>
+          <td>{{avenger.firstApperance}}</td>
+          <td>{{avenger.createdBy}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
