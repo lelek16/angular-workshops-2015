@@ -6,7 +6,18 @@
 
     // Declaring our first controller
     var AvengersListCtrl = function() {
-        this.avengers = listOfAvengers;
+        /** vm means ViewModel */
+        var vm = this;
+        vm.avengers = listOfAvengers;
+        vm.newAvenger = {};
+        vm.addAvenger = addAvenger;
+
+        function addAvenger(newAvenger) {
+            vm.avengers.push(newAvenger);
+
+            // Resets the form, note that two-way binding will take care of our view
+            vm.newAvenger = {};
+        }
     };
 
     // And attaching it to our avengers app

@@ -21,6 +21,24 @@
         {{avenger.name}} ({{avenger.realName}})
       </li>
     </ul>
+
+    <!-- Note: <form> is a directive too! -->
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" class="form-control" type="text" ng-model="list.newAvenger.name" placeholder="Name"/>
+      </div>
+      <div class="form-group">
+        <label for="realName">Real name</label>
+        <input id="realName" class="form-control" type="text" ng-model="list.newAvenger.realName" placeholder="Name"/>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="list.newAvenger.hasSuperPowers"/> Has superpowers?
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="list.addAvenger(list.newAvenger)">Submit</button>
+    </form>
   </div>
   <h2>Debug: Avengers list</h2>
   <pre>{{list.avengers|json}}</pre>
