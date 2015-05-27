@@ -1,5 +1,6 @@
 // Immediately invoked function
 (function() {
+    'use strict';
 
     // Declaring avengers app, see ng-app="avengers"
     var app = angular.module('avengers', []);

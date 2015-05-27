@@ -1,5 +1,6 @@
 // Immediately invoked function
 (function() {
+    'use strict';
 
     // Declaring avengers app, see ng-app="avengers"
     var app = angular.module('avengers', []);
@@ -34,7 +35,7 @@
     // And attaching it to our avengers app
     app.controller('AvengersListCtrl', AvengersListCtrl);
 
-    var CheckMarkFilter = function() {
+    function CheckMarkFilter() {
         function filter(input) {
             return input ? '\u2713' : '\u2718';
         }

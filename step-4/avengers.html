@@ -5,16 +5,13 @@
       <th>Hero Name</th>
       <th>Alter Ego</th>
       <th>Superpowers</th>
-      <th>First apperance</th>
-      <th>Created By</th>
       </thead>
       <tbody>
-        <tr ng-repeat="avenger in avengers">
-          <td>{{avenger.fullName}}</td>
-          <td>{{avenger.alterEgo}}</td>
-          <td>{{avenger.superPowers}}</td>
-          <td>{{avenger.firstApperance}}</td>
-          <td>{{avenger.createdBy}}</td>
+        <tr ng-repeat="avenger in list.avengers">
+          <!-- $index is the current index of the ng-repeat loop -->
+          <td><a ng-href="#/avenger/{{$index}}">{{avenger.name}}</a></td>
+          <td>{{avenger.realName}}</td>
+          <td>{{avenger.hasOwnSuperPowers|checkmark}}</td>
         </tr>
       </tbody>
     </table>
