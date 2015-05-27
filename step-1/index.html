@@ -6,10 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+  <!-- By ng-app we let angular know that from  know it can parse DOM -->
   <body ng-app>
     <div class="container">
       <div class="header clearfix">
         <h3 class="text-muted">Avengers Team Management</h3>
+        <a href="../step-2/index.html">Next step</a>
       </div>
 
       <div class="jumbotron">
@@ -24,7 +26,9 @@
 
         <div class="col-lg-6">
           <h4>AngularJS superpowers</h4>
+          <!-- We declare some variables and bind it to current scope -->
           <div ng-init="greeting = 'Hello from AngularJS application'; ultimateAnswer = 42">
+            <!-- And here goes magic -->
             <p>Is AngularJS working? -> {{greeting}}</p>
             <p>Answer for all questions is: {{ultimateAnswer}}</p>
           </div>
