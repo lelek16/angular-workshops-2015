@@ -22,7 +22,7 @@
       <!-- ng-repeat *directive* binds -->
       <li ng-repeat="avenger in list.avengers|filter:list.search:strict">
         <!-- Both fields in  -->
-        {{avenger.name}} ({{avenger.realName}})
+        {{avenger.name}} ({{avenger.realName}}), superpowers: {{avenger.hasOwnSuperPowers|checkmark}}
       </li>
     </ul>
     <!-- Note: <form> is a directive too! -->
