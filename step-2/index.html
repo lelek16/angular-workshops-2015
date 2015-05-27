@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SuperHero framework for SuperHeroes management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body ng-app="avengers">
+    <div class="container" ng-controller="AvengersListCtrl as list">
+      <div class="header clearfix">
+        <h3 class="text-muted">Avengers Team Management</h3>
+      </div>
+      <div>
+        <ul>
+          <li ng-repeat="avenger in list.avengers">
+            <p>{{avenger.name}} ({{avenger.realName}})</p>
+          </li>
+        </ul>
+      </div>
+      <pre>{{avengers|json}}</pre>
+      <footer class="footer">
+        <p>© Espeo Software 2015</p>
+      </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
