@@ -1,26 +1,26 @@
 (function () {
     'use strict';
     angular.module('avengers', ['ngRoute'])
-        .config(function ($routeProvider) {
-            $routeProvider
-                .when('/avengers', {
-                    templateUrl: 'avengers.html',
-                    controller: 'AvengersController',
-                    controllerAs: 'list'
-                })
-                .when('/avenger/:avenger', {
-                    templateUrl: 'avenger.html',
-                    controller: 'AvengerController',
-                    controllerAs: 'details'
-                })
-                .otherwise({
-                    redirectTo: '/avengers'
-                });
-        })
+            .config(function ($routeProvider) {
+                $routeProvider
+                        .when('/avengers', {
+                            templateUrl: 'tpl-avengers-list',
+                            controller: 'AvengersController',
+                            controllerAs: 'list'
+                        })
+                        .when('/avenger/:avenger', {
+                            templateUrl: 'tpl-avenger',
+                            controller: 'AvengerController',
+                            controllerAs: 'details'
+                        })
+                        .otherwise({
+                            redirectTo: '/avengers'
+                        });
+            })
 
-        .controller('AvengersController', AvengersController)
-        .controller('AvengerController', AvengerController)
-        .filter('checkmark', CheckMarkFilter);
+            .controller('AvengersController', AvengersController)
+            .controller('AvengerController', AvengerController)
+            .filter('checkmark', CheckMarkFilter);
 
 
     function AvengersController() {
@@ -39,7 +39,8 @@
         }
 
         return filter;
-    };
+    }
+    ;
 
     // We will take care of getting this list from the external source later
     var listOfAvengers = [
@@ -53,7 +54,10 @@
                 'Genius-level intellect',
                 'Highly proficient scientist, engineer, and businessperson',
                 'Has powered armored suit'
-            ]
+            ],
+            'firstApperance': 1963,
+            'createdBy': ['Stan Lee', 'Larry Lieber', 'Don Heck', 'Jack Kirby'],
+            'avatarURL': 'http://upload.wikimedia.org/wikipedia/en/e/e0/Iron_Man_bleeding_edge.jpg'
         },
         {
             'name': 'Hulk',
@@ -65,7 +69,10 @@
                 'Hulk\'s Smash',
                 'Invulnerability',
                 'Superhuman strength, stamina, durability, regeneration, speed and endurance'
-            ]
+            ],
+            'firstApperance': 1962,
+            'createdBy': ['Stan Lee', 'Jack Kirby'],
+            'avatarURL': 'http://upload.wikimedia.org/wikipedia/en/3/3e/Incredible-hulk-20060221015639117.jpg'
         },
         {
             'name': 'Thor',
@@ -76,7 +83,10 @@
             'abilities': [
                 'Superhuman strength, endurance, and longevity',
                 'Has Mjolnir'
-            ]
+            ],
+            'firstApperance': 1962,
+            'createdBy': ['Stan Lee', 'Larry Lieber', 'Jack Kirby'],
+            'avatarURL': 'http://upload.wikimedia.org/wikipedia/en/4/41/Thor-272.jpg'
         }
     ];
 
