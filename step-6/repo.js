@@ -1,46 +1,20 @@
+// Immediately invoked function
+
 (function () {
-  'use strict';
-  angular.module('avengers', ['ngRoute'])
-    .config(function ($routeProvider) {
-      $routeProvider
-        .when('/avengers', {
-          templateUrl: 'tpl-avengers-list',
-          controller: 'AvengersController',
-          controllerAs: 'list'
-        })
-        .when('/avenger/:avenger', {
-          templateUrl: 'tpl-avenger',
-          controller: 'AvengerController',
-          controllerAs: 'details'
-        })
-        .otherwise({
-          redirectTo: '/avengers'
-        });
-    })
+  angular.module('avengers.repo', [])
+    .service('AvengersRepo', AvengersRepo);
 
-    .controller('AvengersController', AvengersController)
-    .controller('AvengerController', AvengerController)
-    .filter('checkmark', CheckMarkFilter);
-
-
-  function AvengersController() {
-    var vm = this;
-    vm.avengers = listOfAvengers;
+  function AvengersRepo() {
+    var avengers = listOfAvengers;
+    return {
+      fetchAll: function () {
+        return avengers;
+      },
+      fetchOne: function (index) {
+        return avengers[index];
+      }
+    };
   }
-
-  function AvengerController($routeParams) {
-    var vm = this;
-    vm.avenger = listOfAvengers[$routeParams.avenger];
-  }
-
-  function CheckMarkFilter() {
-    function filter(input) {
-      return input ? '\u2713' : '\u2718';
-    }
-
-    return filter;
-  }
-
   // We will take care of getting this list from the external source later
   var listOfAvengers = [
     {
@@ -88,5 +62,4 @@
       'avatarURL': 'http://upload.wikimedia.org/wikipedia/en/4/41/Thor-272.jpg'
     }
   ];
-
 })();

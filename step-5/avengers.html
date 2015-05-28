@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-16">
+    <table class="table">
+      <thead>
+      <th>Hero Name</th>
+      <th>Alter Ego</th>
+      <th>Superpowers</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="avenger in list.avengers">
+          <!-- $index is the current index of the ng-repeat loop -->
+          <td><a ng-href="#/avenger/{{$index}}">{{avenger.name}}</a></td>
+          <td>{{avenger.realName}}</td>
+          <td>{{avenger.hasOwnSuperPowers|checkmark}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
