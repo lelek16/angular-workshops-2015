@@ -8,7 +8,7 @@
       .controller('AvengersListCtrl', AvengersListCtrl);
 
     // Declaring our first controller
-    var AvengersListCtrl = function() {
+    function AvengersListCtrl() {
         this.avengers = listOfAvengers;
     };
 
