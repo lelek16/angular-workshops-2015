@@ -15,24 +15,23 @@
 * ng-init
 * AngularJS notation -> {{}}
 
-## Step 2
+## Step 2 - List of Avengers
 * Defining Controller
 * Controller - main AngularJS component
-* List of Avengers
 
-## Step 2a
+## Step 2a - Adding new Avenger to the team
 * ng-model
 
-## Step 3 
+## Step 3 - The best of the best - filter by Superpower
 * ng-filter
 
-## Step 4
+## Step 4 - Avenger portfolio!
 * ng-routing
 
-## Step 5
+## Step 5 - Avenger never duplicate code!
 * Service usage
 
-## Step 6
+## Step 6 - Avenger Assembly!
 * Directive for the win!
 
 ##### by Espeo Software
