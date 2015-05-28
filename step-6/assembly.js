@@ -21,16 +21,17 @@
     return {
       restrict: 'A',
       templateUrl: 'tpl-avengers-assembly',
-      link: function ($scope, element, attr) {
-        //Here goes business logic
-        $scope.assembledAvengers = Assembly.assembled();
-        
-        //You can also modify DOM element like with jquery
-        element.on("click", function () {
-          element.css("color","red");
-        });
-      }
+      link: link
     };
-  }
 
+    function link($scope, element, attr) {
+      //Here goes business logic
+      $scope.assembledAvengers = Assembly.assembled();
+
+      //You can also modify DOM element like with jquery
+      element.on("click", function () {
+        element.css("color", "red");
+      });
+    }
+  }
 })();
