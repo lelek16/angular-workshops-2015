@@ -3,28 +3,36 @@
 (function () {
 
   // Declaring avengers app, see ng-app="avengers"
-  angular.module('avengers',[
-        'ngRoute',
-        'avengers.assembly'
-      ])
-      .config(function ($routeProvider) {
-        $routeProvider
-            .when('/avengers', {
-              templateUrl: 'avengers.html',
-              controller: 'AvengersCtrl',
-              controllerAs: 'vm'
-            })
-            .when('/avenger/:avenger', {
-              templateUrl: 'avenger.html',
-              controller: 'AvengerCtrl',
-              controllerAs: 'vm'
-            })
-            .otherwise({
-              redirectTo: '/avengers'
-            });
-      })
-      .controller('AvengersCtrl', AvengersCtrl)
-      .controller('AvengerCtrl', AvengerCtrl);
+  angular.module('avengers', [
+    'ngRoute',
+    'avengers.assembly'
+  ])
+    .config(function ($routeProvider) {
+      $routeProvider
+        .when('/avengers', {
+          templateUrl: 'tpl-avengers-list',
+          controller: 'AvengersCtrl',
+          controllerAs: 'list'
+        })
+        .when('/avenger/:avenger', {
+          templateUrl: 'tpl-avenger',
+          controller: 'AvengerCtrl',
+          controllerAs: 'details'
+        })
+        .otherwise({
+          redirectTo: '/avengers'
+        });
+    })
+    .controller('AvengersCtrl', AvengersCtrl)
+    .controller('AvengerCtrl', AvengerCtrl)
+    .filter('checkmark', CheckMarkFilter);
+
+  function CheckMarkFilter() {
+    function filter(input) {
+      return input ? '\u2713' : '\u2718';
+    }
+    return filter;
+  }
 
   // Declaring our first controller
   function AvengersCtrl() {
@@ -32,21 +40,20 @@
     vm.avengers = listOfAvengers;
   }
 
-  // Declaring our first controller
-  function AvengerCtrl(Assembly) {
+  function AvengerCtrl($routeParams, Assembly) {
     var vm = this;
-    vm.avenger = listOfAvengers[0];
+    vm.avenger = listOfAvengers[$routeParams.avenger];
     vm.assemblyMe = assemblyMe;
 
-    function assemblyMe (avenger) {
+    function assemblyMe(avenger) {
       Assembly.assemblyAvenger(avenger);
-    };
+    }
+    ;
   }
 
   // We will take care of getting this list from the external source later
   var listOfAvengers = [
     {
-      'shortName': 'ironman',
       'name': 'Iron Man',
       'realName': 'Anthony Edward "Tony" Stark',
       'species': 'human',
@@ -59,10 +66,9 @@
       ],
       'firstApperance': 1963,
       'createdBy': ['Stan Lee', 'Larry Lieber', 'Don Heck', 'Jack Kirby'],
-      avatarURL: 'http://upload.wikimedia.org/wikipedia/en/e/e0/Iron_Man_bleeding_edge.jpg'
+      'avatarURL': 'http://upload.wikimedia.org/wikipedia/en/e/e0/Iron_Man_bleeding_edge.jpg'
     },
     {
-      'shortName': 'hulk',
       'name': 'Hulk',
       'realName': 'Robert Bruce Banner',
       'species': 'human mutant',
@@ -72,10 +78,12 @@
         'Hulk\'s Smash',
         'Invulnerability',
         'Superhuman strength, stamina, durability, regeneration, speed and endurance'
-      ]
+      ],
+      'firstApperance': 1962,
+      'createdBy': ['Stan Lee', 'Jack Kirby'],
+      'avatarURL': 'http://upload.wikimedia.org/wikipedia/en/3/3e/Incredible-hulk-20060221015639117.jpg'
     },
     {
-      'shortName': 'thor',
       'name': 'Thor',
       'realName': 'Thor Odinson',
       'species': 'Asgardian',
@@ -84,8 +92,10 @@
       'abilities': [
         'Superhuman strength, endurance, and longevity',
         'Has Mjolnir'
-      ]
+      ],
+      'firstApperance': 1962,
+      'createdBy': ['Stan Lee', 'Larry Lieber', 'Jack Kirby'],
+      'avatarURL': 'http://upload.wikimedia.org/wikipedia/en/4/41/Thor-272.jpg'
     }
-  ]
-
+  ];
 })();

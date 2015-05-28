@@ -40,7 +40,6 @@
 
         return filter;
     }
-    ;
 
     // We will take care of getting this list from the external source later
     var listOfAvengers = [

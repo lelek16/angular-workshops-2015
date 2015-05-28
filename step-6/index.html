@@ -20,15 +20,86 @@
       <div class="container" ng-view>
       </div>
 
-
       <footer class="footer">
         <p>© Espeo Software 2015</p>
       </footer>
+       <!-- We put template html here. Normaly they will be in separate files -->
+      <script type="text/ng-template" id="tpl-avengers-list">
+      <div class="row">
+        <div class="col-md-16">
+          <table class="table">
+            <thead>
+            <th>Hero Name</th>
+            <th>Alter Ego</th>
+            <th>Superpowers</th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="avenger in list.avengers">
+                <!-- $index is the current index of the ng-repeat loop -->
+                <td><a ng-href="#/avenger/{{$index}}">{{avenger.name}}</a></td>
+                <td>{{avenger.realName}}</td>
+                <td>{{avenger.hasOwnSuperPowers|checkmark}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div assembled-avengers></div>
+        </div>
+      </div>
+      </script>
+
+      <script type="text/ng-template" id="tpl-avenger">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-4">
+            <h4>Chosen Avenger: {{details.avenger.name}}</h4>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class=" col-md-6">
+            <div class="row">
+              <ul>
+                <li>Full Name: {{details.avenger.name}}</li>
+                <li>Alter Ego: {{details.avenger.realName}}</li>
+                <li>Superpowers: {{details.avenger.hasOwnSuperPowers|checkmark}}</li>
+                <li>First appear: {{details.avenger.firstApperance}}</li>
+                <li>Created by: {{details.avenger.createdBy}}</li>
+              </ul>
+            </div>
+            <div class"row">
+              <button class="btn btn-primary" ng-click="details.assemblyMe(details.avenger)">Assembly Me!</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img ng-src="{{details.avenger.avatarURL}}">
+          </div>
+          <a href="#/avengers">&laquo; Back to the list</a>
+        </div>
+        <div>
+          <div assembled-avengers></div>
+        </div>
+      </script>
+      
+      <script  type="text/ng-template" id="tpl-avengers-assembly">
+        <div class="row">
+          <h4>Avengers! Who is assembled?</h4>
+          <ul>
+            <li ng-repeat="av in assembledAvengers">
+              {{av.name}}
+            </li>
+          </ul>
+        <p ng-show="assembledAvengers.length < 1">No one is assembled :/</p>
+        </div>
+      
+      
+      
     </div>
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.3.15/angular-route.js"></script>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
     <script src="assembly.js"></script>
   </body>
 </html>
