@@ -8,13 +8,16 @@
 * fronted framework for backend dev -> MVC friendly
 * REST driven applications
 * dynamic frontend application
+* plenty of tools, framework, libraries
 
-### ng-app
-* Step 1
-* ku
+## Step 1 
+* ng-app
+* ng-init
+* AngularJS notation -> {{}}
 
-### ng-controller
-* Step 2
+## Step 2
+* Defining Controller
+* Controller - main AngularJS component
 * List of Avengers
 * kh
 

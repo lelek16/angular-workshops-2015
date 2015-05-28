@@ -3,15 +3,14 @@
     'use strict';
 
     // Declaring avengers app, see ng-app="avengers"
-    var app = angular.module('avengers', []);
+    angular.module('avengers', [])
+    // Attach first Controller
+      .controller('AvengersListCtrl', AvengersListCtrl);
 
     // Declaring our first controller
     var AvengersListCtrl = function() {
         this.avengers = listOfAvengers;
     };
-
-    // And attaching it to our avengers app
-    app.controller('AvengersListCtrl', AvengersListCtrl);
 
     // We will take care of getting this list from the external source later
     var listOfAvengers = [
