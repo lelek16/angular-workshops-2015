@@ -19,33 +19,20 @@
 * Defining Controller
 * Controller - main AngularJS component
 * List of Avengers
-* kh
 
-### ng-model
-* With Step 2
-* Add row with adding new Avengers to List
-* kh
+## Step 2a
+* ng-model
 
-### ng-filter
-* Step 3
-* filter usage with List (searching)
-* hasSuperPowerFilter which display heroes specific powers
-* kh
+## Step 3 
+* ng-filter
 
-### ng-routing
-* Step 4
-* Add routing for each Avengers page
-* ku
+## Step 4
+* ng-routing
 
-### service
-* Step 5
-* Fetch selected Avengers data
-* kh
+## Step 5
+* Service usage
 
-### Directive
-* Step 6
-* Checkbox with Assembly Me!
-* Assembled Avengers directive avengers-assembled 
-* ku
+## Step 6
+* Directive for the win!
 
 ##### by Espeo Software
