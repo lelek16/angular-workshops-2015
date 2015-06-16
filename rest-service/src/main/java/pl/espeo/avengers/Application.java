@@ -1,4 +1,4 @@
-package pl.espeo;
+package pl.espeo.avengers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
