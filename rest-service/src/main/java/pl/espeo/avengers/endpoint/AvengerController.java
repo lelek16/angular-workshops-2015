@@ -2,16 +2,9 @@ package pl.espeo.avengers.endpoint;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Random;
 import java.util.UUID;
-import javax.servlet.http.HttpServletResponse;
-import javax.websocket.server.PathParam;
-import javax.xml.ws.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;

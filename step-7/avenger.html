@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-1 col-md-offset-11">
+    <a ng-href="#/avengers">Back</a>
+  </div>
+</div>
+<div class="row">
+  <div class=" col-md-6">
+    <div class="row">
+      <ul>
+        <li>Full Name: {{vm.avenger.name}}</li>
+        <li>Alter Ego: {{vm.avenger.realName}}</li>
+        <li>Abilities: {{vm.avenger.abilities}}</li>
+        <li>First apperance: {{vm.avenger.firstApperance}}</li>
+        <li>Created By: {{vm.avenger.createdBy}}</li>
+      </ul>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" ng-click="vm.assemblyMe(vm.avenger)">Assembly Me!</button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <img ng-src="{{vm.avenger.avatarURL}}">
+  </div>
+</div>
+<div>
+  <div assembled-avengers></div>
+</div>
