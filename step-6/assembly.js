@@ -20,7 +20,16 @@
   function assembledAvengers(Assembly) {
     return {
       restrict: 'A',
-      templateUrl: 'tpl-avengers-assembly',
+      template:
+        '<div class="row">' +
+          '<h4>Avengers! Who is assembled?</h4>' +
+          '<ul>' +
+            '<li ng-repeat="av in assembledAvengers">' +
+              '{{av.name}}' +
+            '</li>' +
+          '</ul>' +
+          '<p ng-show="assembledAvengers.length < 1">No one is assembled :/</p>' +
+        '</div>',
       link: link
     };
 

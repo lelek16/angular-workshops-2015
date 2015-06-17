@@ -14,17 +14,19 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/*Spec.js'
+        'node_modules/jquery/dist/jquery.js',
+        'node_modules/angular/angular.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'node_modules/angular-route/angular-route.js',
+        'app.js',
+        'repo.js',
+        'assembly.js',
+        'assemblySpec.js'
     ],
 
-
-    // list of files to exclude
     exclude: [
     ],
 
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
     },
 
