@@ -69,4 +69,13 @@ public class AvengerController {
         }
         avengers.get(who).put(id, avenger);
     }
+
+    @RequestMapping(value = "/{who}/avengers/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable("who") String who, @PathVariable("id") String id) {
+        if (!avengers.containsKey(who)) {
+            throw new ListNotInitializedException();
+        }
+        avengers.get(who).remove(id);
+    }
 }
