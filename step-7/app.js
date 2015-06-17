@@ -15,6 +15,11 @@
           controller: 'AvengersCtrl',
           controllerAs: 'list'
         })
+        .when('/avenger/new', {
+          templateUrl: 'tpl-avenger-new',
+          controller: 'AvengerNewCtrl',
+          controllerAs: 'add'
+        })
         .when('/avenger/:avenger/edit', {
           templateUrl: 'tpl-avenger-edit',
           controller: 'AvengerEditCtrl',
@@ -32,6 +37,7 @@
     .controller('AvengersCtrl', AvengersCtrl)
     .controller('AvengerCtrl', AvengerCtrl)
     .controller('AvengerEditCtrl', AvengerEditCtrl)
+    .controller('AvengerNewCtrl', AvengerNewCtrl)
     .filter('checkmark', CheckMarkFilter);
 
   function CheckMarkFilter() {
@@ -42,14 +48,19 @@
   }
 
   // Declaring our first controller
-  function AvengersCtrl(AvengersRepo) {
+  function AvengersCtrl($location, AvengersRepo) {
     var vm = this;
     vm.message = '';
     vm.avengers = AvengersRepo.query();
+    vm.addAvenger = addAvenger
 
     vm.avengers.$promise.catch(function () {
       vm.message = "Unable to fetch Avengers Team";
     });
+    
+    function addAvenger() {
+      $location.path("/avenger/new");
+    }
   }
 
   function AvengerCtrl($routeParams, AvengersRepo, Assembly) {
@@ -81,6 +92,18 @@
         $location.path("/avenger/" + vm.avenger.id);
       });
     };
+  }
+  
+  function AvengerNewCtrl($location, AvengersRepo) {
+    var vm = this;
+    vm.avenger = {};
+    vm.addAvenger = addAvenger;
+    
+    function addAvenger() {
+      AvengersRepo.save(vm.avenger).$promise.then(function() {
+        $location.path("/avengers");
+      });
+    }
   }
 
 })();
