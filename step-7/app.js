@@ -57,7 +57,7 @@
     vm.avengers.$promise.catch(function () {
       vm.message = "Unable to fetch Avengers Team";
     });
-    
+
     function addAvenger() {
       $location.path("/avenger/new");
     }
@@ -88,20 +88,27 @@
     vm.updateAvenger = updateAvenger;
 
     function updateAvenger() {
-      AvengersRepo.update(vm.avenger).$promise.then(function() {
+      AvengersRepo.update(vm.avenger).$promise.then(function () {
         $location.path("/avenger/" + vm.avenger.id);
       });
-    };
+    }
+    ;
   }
-  
+
   function AvengerNewCtrl($location, AvengersRepo) {
     var vm = this;
     vm.avenger = {};
+    vm.message = '';
     vm.addAvenger = addAvenger;
-    
+
     function addAvenger() {
-      AvengersRepo.save(vm.avenger).$promise.then(function() {
+      if (!vm.form.$valid) {
+        return;
+      }
+      AvengersRepo.save(vm.avenger).$promise.then(function () {
         $location.path("/avengers");
+      }, function (response) {
+        vm.message = 'Invalid request';
       });
     }
   }
