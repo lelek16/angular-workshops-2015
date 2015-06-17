@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,7 +52,7 @@ public class AvengerController {
 
     @RequestMapping(value = "/{who}/avengers", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED) 
-    public void create(@PathVariable("who") String who, @RequestBody Avenger avenger) {
+    public void create(@PathVariable("who") String who, @RequestBody @Valid Avenger avenger) {
         if (!avengers.containsKey(who)) {
             throw new ListNotInitializedException();
         }
@@ -62,7 +63,7 @@ public class AvengerController {
 
     @RequestMapping(value = "/{who}/avengers/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK) 
-    public void update(@PathVariable("who") String who, @PathVariable("id") String id, @RequestBody Avenger avenger) {
+    public void update(@PathVariable("who") String who, @PathVariable("id") String id, @RequestBody @Valid Avenger avenger) {
         if (!avengers.containsKey(who)) {
             throw new ListNotInitializedException();
         }
