@@ -11,6 +11,9 @@
       assemblyAvenger: function (avenger) {
         assembledAvengers[avenger.name] = avenger;
       },
+	  disassemblyAvenger: function (avenger) {
+        delete assembledAvengers[avenger.name];
+      },
       assembled: function () {
         return assembledAvengers;
       }

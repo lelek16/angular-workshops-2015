@@ -47,5 +47,9 @@ describe('Assembled avengers list', function() {
         assemblyService.assemblyAvenger({'name': 'Hulk'});
         $rootScope.$digest();
         expect(element.html()).toContain("Hulk");
+		assemblyService.disassemblyAvenger({'name': 'Hulk'});
+        $rootScope.$digest();
+        expect(element.html()).not.toContain("Hulk");
     });
+	
 });

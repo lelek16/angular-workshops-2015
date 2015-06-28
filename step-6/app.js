@@ -45,9 +45,13 @@
     var vm = this;
     vm.avenger = AvengersRepo.fetchOne($routeParams.avenger);
     vm.assemblyMe = assemblyMe;
+    vm.disassemblyMe = disassemblyMe;
 
     function assemblyMe(avenger) {
       Assembly.assemblyAvenger(avenger);
+    }
+	function disassemblyMe(avenger) {
+      Assembly.disassemblyAvenger(avenger);
     }
   }
 })();
