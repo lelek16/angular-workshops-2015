@@ -6,7 +6,8 @@
   angular.module('avengers', [
     'ngRoute',
     'avengers.repo',
-    'avengers.assembly'
+    'avengers.assembly',
+	'avengers.ability'
   ])
     .config(function ($routeProvider) {
       $routeProvider
@@ -41,11 +42,12 @@
     vm.avengers = AvengersRepo.fetchAll();
   }
 
-  function AvengerCtrl($routeParams, AvengersRepo, Assembly) {
+  function AvengerCtrl($routeParams, AvengersRepo, Assembly, Ability) {
     var vm = this;
     vm.avenger = AvengersRepo.fetchOne($routeParams.avenger);
     vm.assemblyMe = assemblyMe;
     vm.disassemblyMe = disassemblyMe;
+	vm.toggleAbilities = toggleAbilities;
 
     function assemblyMe(avenger) {
       Assembly.assemblyAvenger(avenger);
@@ -53,5 +55,16 @@
 	function disassemblyMe(avenger) {
       Assembly.disassemblyAvenger(avenger);
     }
+	function toggleAbilities(avenger) {
+		var elem = document.getElementById('abilities');
+		
+		Ability.showAbilities(avenger);
+		
+		if (elem.offsetParent === null)
+			elem.style['display'] = 'block';
+		else
+			elem.style['display'] = 'none';
+	}
+	
   }
 })();

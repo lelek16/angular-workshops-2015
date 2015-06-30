@@ -45,5 +45,6 @@
         element.css("color", "red");
       });
     }
+
   }
 })();

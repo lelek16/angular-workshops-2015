@@ -1,15 +1,18 @@
 describe('Assembled avengers list', function() {
     var $compile,
         $rootScope,
-        assemblyService;
+        assemblyService,
+		abilityService;
 
     beforeEach(module('avengers.assembly'));
+    beforeEach(module('avengers.ability'));
 
-    beforeEach(inject(function(_$compile_, _$rootScope_, Assembly){
+    beforeEach(inject(function(_$compile_, _$rootScope_, Assembly, Ability){
         // The injector unwraps the underscores (_) from around the parameter names when matching
         $compile = _$compile_;
         $rootScope = _$rootScope_;
         assemblyService = Assembly;
+        abilityService = Ability;
     }));
 
     it('has sane environment', function() {
@@ -50,6 +53,15 @@ describe('Assembled avengers list', function() {
 		assemblyService.disassemblyAvenger({'name': 'Hulk'});
         $rootScope.$digest();
         expect(element.html()).not.toContain("Hulk");
+    });
+	
+	it('show abilities', function() {
+		var element = $compile('<div avenger-abilities></div>')($rootScope);
+        $rootScope.$digest();
+		expect(element.html()).not.toContain('Super power');
+		abilityService.showAbilities({'abilities': ['Super power', 'More Super Power!']});
+		$rootScope.$digest();
+		expect(element.html()).toContain('Super power');
     });
 	
 });

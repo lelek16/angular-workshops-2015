@@ -21,6 +21,7 @@ module.exports = function(config) {
         'app.js',
         'repo.js',
         'assembly.js',
+        'abilities.js',
         'assemblySpec.js'
     ],
 
