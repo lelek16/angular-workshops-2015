@@ -9,7 +9,6 @@
     var avengerAbilities = {};
     return {
       showAbilities: function (avenger) {
-		// avengerAbilities[avenger.name] = avenger.abilities;
 		for (ability in avenger.abilities) {
 			avengerAbilities[ability] = avenger.abilities[ability];
 		}
